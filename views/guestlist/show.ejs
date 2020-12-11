@@ -1,0 +1,83 @@
+<% include ../partials/header%>
+
+
+
+<div class = "container showBackground">
+    <div class="row">
+        <div class="col-md-3">
+            <% include ../partials/sideForm%>
+        </div>
+        <div class="col-md-9">
+            
+            <!--Search form -->
+
+                <form class="form-horizontal"  method="POST" action="/guestlist/search">
+                <!--<form class="form-horizontal"  method="POST" action="#">-->
+                    <div class="form-group">
+                        <div class="col-sm-10 col-xs-8">
+                             <input class="form-control"  type="text" name="search" placeholder="Search a guest name" required="required">
+                        </div>
+                       
+                        <div class="col-sm-2">
+                            <button class="btn btn-sm btn-primary">Search!</button>
+                        </div>
+                    </div>
+                
+                </form>
+            
+            <!--<h6 class="showText">This feature is working still under development. To view temporary guest list, please click-->
+            <!--    <a href ="<%= tempList%>" target="_blank">here.</a>-->
+            <!--</h6>-->
+            <h6><a href="/guestlist/sort">Sort alphabetically</a></h6>
+            <h6><a href="/exportcsv">Export to CSV</a></h6>
+            
+            <h2 class="showHeader">Guestlist</h2>
+            <table class="table table-hover guest-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Count</th>
+                        <th>Remarks</th>
+                        <th>Status</th>
+                        <th>Edit/Delete</th>
+                    </tr>
+                </thead>
+              
+                <tbody>
+                    <% list.forEach(function (name){ %>
+                    <tr>
+                        <td><%= name.name %></td>
+                        <td><%= name.count %></td>
+                        <td><%= name.remarks %></td>
+                        <td><%= name.status %></td>
+                        <td>
+                           <div class="editIcons">
+                                <a href="/guestlist/<%=name._id%>/edit" class="btn btn-xs btn-warning glyphicon glyphicon-pencil" id="iconsSpacing" aria-hidden="true"></a>
+                                
+                                <!--<a href="/guestlist/<%= name._id%>?_method=DELETE" method="POST" class="glyphicon glyphicon-remove" id="iconsSpacing" aria-hidden="true"></a>-->
+                                 
+                                <form class="deleteform" action="/guestlist/<%= name._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-xs btn-danger glyphicon glyphicon-remove"></button>
+                                </form>
+                           </div>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+                
+               
+            </table>
+            
+            
+        </div>
+        
+        
+        
+        
+      
+        
+    </div>
+    
+</div>
+
+<% include ../partials/footer%>

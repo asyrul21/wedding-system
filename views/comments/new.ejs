@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Add a New Comment to <%=task.name%></h1>
+        
+        <div style="width:30%; margin: 25px auto;">
+            <form action="/tasks/<%=task.id%>/comments" method="POST">
+                <div class="form-group">
+                        <textarea class="form-control" rows="5" name="comment[text]" placeholder="Say something...
+                                                                                                Know HTML? Go on and show off your skills! <strong> to bold, <em> to italicise, <p> for paragraphing, and so on!"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            
+            <a href="/tasks/<%=task._id%>">Go back</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

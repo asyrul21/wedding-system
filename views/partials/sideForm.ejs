@@ -1,0 +1,37 @@
+ <div class="guestlistFormContainer">
+                    <div class = "totalGuest">
+                        <h5>Total guest right now:</h5>
+                        <h2>
+                            <%= total %>
+                        </h2>
+                    </div>
+                
+                    <h3 class="showHeader">Insert new guest</h3>
+                    <form action="/guestlist/" method="POST">
+                        <div class="form-group">
+                             <input class="form-control" type="text" name="guestname" placeholder="name" required="required">
+                        </div>
+                        
+                        <div class="form-group">
+                             <input class="form-control" type="number" name="count" placeholder="How many of them?" min="1" step="1" required="required">
+                        </div>
+                        
+                        <div class="form-group">
+                             <input class="form-control" type="text" name="remarks" placeholder="Remarks">
+                        </div>
+                        
+                        <div class="form-group">
+                                 
+                            <select class="form-control" required="required" id="selectstatus" placeholder="Status" name="status">
+                                    <option value="" disabled selected>Confirmed his attendance?</option>
+                                    <option value="Confirmed">Confirmed</option>
+                                    <option value="Not Confirmed">Not Confirmed</option>
+                            </select>
+                            
+                        </div>
+                       
+                        <div class="form-group">
+                            <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                        </div>
+                    </form>
+            </div>

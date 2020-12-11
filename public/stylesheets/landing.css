@@ -1,0 +1,110 @@
+body {
+  background-color: #000;
+  /*background-image: url('../../images/pexels-cake.jpeg');*/
+   /*background-image: url(http://i.imgur.com/K3mPv14.jpg) */
+}
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#landing-header h1 {
+  font-family: 'Dancing Script', cursive;
+  color: #fff;
+}
+
+.slideshow { 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+  background-image: url('../images/pexels-hands.jpeg') 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url('../images/pexels-cake.jpeg');
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url('../images/pexels-wedd.jpeg');
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url('../images/pexels-love.jpeg');
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url('../images/pexels-wedd-2.jpeg');
+  animation-delay: 40s; 
+}
+
+/*.slideshow li:nth-child(1) { */
+/*  background-image: url(https://images.pexels.com/photos/247858/pexels-photo-247858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) */
+/*}*/
+/*.slideshow li:nth-child(2) { */
+/*  background-image: url(https://images.pexels.com/photos/169191/pexels-photo-169191.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);*/
+/*  animation-delay: 10s; */
+/*}*/
+/*.slideshow li:nth-child(3) { */
+/*  background-image: url('https://images.pexels.com/photos/169193/pexels-photo-169193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');*/
+/*  animation-delay: 20s; */
+/*}*/
+/*.slideshow li:nth-child(4) { */
+/*  background-image: url('https://images.pexels.com/photos/353347/pexels-photo-353347.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');*/
+/*  animation-delay: 30s; */
+/*}*/
+/*.slideshow li:nth-child(5) { */
+/*  background-image: url('https://images.pexels.com/photos/949586/pexels-photo-949586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');*/
+/*  animation-delay: 40s; */
+/*}*/
+
+
+@keyframes imageAnimation { 
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
+}
+
+.landinglogin {
+    display: inline;
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

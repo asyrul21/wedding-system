@@ -1,0 +1,58 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+         <h1 style="text-align: center;">Create New Task</h1>
+         
+         <div style = "width: 30%; margin: 25px auto;">
+                <form action="/tasks" method="POST">
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="name" placeholder="name" required="required">
+                    </div>
+                    
+                     <div class="form-group">
+                         <input class="form-control" type="text" name="image" placeholder="image url || Not sure? Just leave blank!">
+                     </div>
+                     
+                     <!-- <div class="form-group">-->
+                     <!--    <input class="form-control" type="textarea" name="description" placeholder="Say something">-->
+                     <!--</div>-->
+                     
+                     <div class="form-group">
+                        <textarea class="form-control" rows="5" name="description" placeholder="Say something...
+                                                                                                Know HTML? Go on and show off your skills! <strong> to bold, <em> to italicise, <p> for paragraphing, and so on!"></textarea>
+                    </div>
+                     
+                     <div class="form-group">
+                         <input class="form-control" type="number" name="progress" placeholder="Progress %" min="0.01" step="0.01" required="required">
+                    </div>
+                
+                   <div class="form-group">
+                       <!--<label for="selectpic">Person in Charge:</label>-->
+                        <select class="form-control" required="required" id="selectpic" placeholder="Person in Charge" name="pic">
+                            <option value="" disabled selected>Person in Charge</option>
+                            <% admins.forEach(function(admin){ %>
+                            <option value="<%= admin._id %>">
+                                <% if (currentUser.username === admin.username) {%>
+                                    Me!
+                                <% } else {%>
+                                    <%= admin.username %>
+                                <% } %>
+                            </option>
+                          <% }) %>
+                          
+                        </select>
+                   </div>
+                     
+                 <div class="form-group">
+                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                 </div>
+                </form>
+                 <a href="/tasks">Go back</a>
+             
+         </div>
+     
+    
+    </div>
+</div>
+<% include ../partials/footer %>

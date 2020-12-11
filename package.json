@@ -1,0 +1,31 @@
+{
+  "name": "asyrulyasminsystem",
+  "version": "1.0.0",
+  "description": "wedding task monitoring system",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Asyrul Hafetzy",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.1",
+    "eol": "^0.9.1",
+    "express": "^4.16.3",
+    "express-sanitizer": "^1.0.4",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "moment": "^2.22.2",
+    "mongoose": "^5.2.14",
+    "mongoose-to-csv": "^0.1.1",
+    "mongoose-unique-validator": "^2.0.2",
+    "nodemon": "^1.18.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "request": "^2.88.0"
+  }
+}

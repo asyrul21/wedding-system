@@ -1,0 +1,96 @@
+<% include ../partials/header %>
+
+
+   <div class="container">
+        <header class="jumbotron" id="jumbo">
+            <div class="container">
+                <h1 id="header">Welcome to WeddSystem!</h1>
+                <p>Organize, monitor, and view your tasks</p>
+                <p>
+                    <a class = "btn btn-primary btn-lg" href="/tasks/new">Add a New Task</a>
+                </p>
+            </div>
+        </header>
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Below are all the tasks covered for this event:</h3>
+            
+        </div>
+    </div>
+
+        
+     <div class="row text-centerp" style="display:flex; flex-wrap: wrap;">
+        <% tasks.forEach((task) => { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%=task.image%>">
+                    <div class="caption">
+                        <!-- Task name -->
+                        <h4><strong><%=task.name%></strong></h4>
+                        <h6><em>Created by 
+                            <% if(currentUser && task.author.id.equals(currentUser._id)){%>
+                                you
+                            <% } else {%>
+                                <%= task.author.username%>
+                            <% } %>
+                        </em></h6>
+                        
+                        <!-- PIC -->
+                         <h6><em><strong>Person in Charge:</strong> 
+                            <% if(currentUser && task.pic.id.equals(currentUser._id)){%>
+                                YOU!
+                            <% } else {%>
+                                <%= task.pic.username%>
+                            <% } %>
+                        </em></h6>
+                        
+                        <!-- Task description-->
+                        <p>
+                            <%- task.description.slice(0,200) %>
+                            <% if (task.description.length > 200) { %>
+                                ...
+                            <% } %>
+                        </p>
+                        
+                        <!-- Task progress -->
+                         <!--<h5>Progress: <%=task.progress%>%</h5>-->
+                         <h5>Status: 
+                            <% if(task.progress === 100) {%>
+                                <span class="label label-success">Completed!</span>
+                            <% } else { %>
+                                <span class="label label-danger">In Progress</span>
+                            <% } %>
+                        
+                        </h5>
+                        
+                         
+                         <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="<%=task.progress%>" aria-valuemin="0" aria-valuemax="100" style="width: <%=task.progress%>%;">
+                            <%=task.progress%>%
+                          </div>
+                        </div>
+                        
+                        <!-- More info button -->
+                        <p class="btn-center">
+                            <a href="/tasks/<%= task._id%>" class="btn btn-primary" role="button">More Info</a>
+                        
+                            <% if(currentUser && task.pic.id.equals(currentUser._id)){ %>
+                                <a href="#" class="btn btn-warning" role="button">PIC</a>
+                            <% } %>
+                        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <% });%>
+     </div>
+        
+   </div>
+    
+    
+    
+ </div>
+
+
+<% include ../partials/footer %>
